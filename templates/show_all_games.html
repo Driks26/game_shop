@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}All games{% endblock %}
+
+{% block content %}
+    <section class="page-banner" style="background-image:url(images/background/title-bg.jpg);">
+        <div class="auto-container">
+            <div class="inner-container clearfix">
+                <ul class="bread-crumb clearfix">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Pages</a></li>
+                    <li>About Me</li>
+                </ul>
+                <h1>About Me</h1>
+            </div>
+        </div>
+    </section>
+    <!--End Page Title-->
+
+{%for game in games%}
+
+	<section class="player-info-section">
+		<div class="auto-container">
+			<div class="row clearfix">
+            	<!--Text Column-->
+                <div class="text-column col-lg-6 col-md-4 col-sm-12">
+                	<div class="inner wow fadeInRight">
+                    	<div class="title-box">
+                        	<div class="Games">{{ game.name }}</div>
+                            <div class="Price">Price :: {{ game.price }}</div>
+                        </div>
+                        <div class="Description">{{game.game_description}}</div>
+                    </div>
+
+                    <div class="content-box">
+                        <div class="btn-box"><a href="#" class="theme-btn btn-style-one1"><span class="btn-title">Add to cart</span></a></div>
+                    </div>
+
+                </div>
+                <!--Image Column-->
+                <div class="image-column col-lg-4 col-md-4 col-sm-6">
+                	<div class="inner wow fadeInLeft">
+                    	<figure class="image"><img src="{{ url_for('static',filename='images/resource/Games.jpeg')}}" alt=""></figure>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</section>
+{%endfor%}
+{%endblock %}
+

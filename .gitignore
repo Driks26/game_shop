@@ -1,0 +1,80 @@
+
+Flask Project Git Ignore
+Ignore PyCharm files and directories
+.idea/
+*.iml
+*.ipr
+*.iws
+
+Ignore virtual environment
+venv/
+
+Ignore compiled Python files
+*.pyc
+
+Ignore cached files
+pycache/
+
+Ignore environment variables file
+.env
+
+Ignore logs
+*.log
+
+Ignore database files
+*.db
+
+Ignore static and media files
+
+
+
+Ignore generated files
+*.pyc
+*.pyo
+*.pyd
+
+Ignore package directories
+dist/
+build/
+*.egg-info/
+
+Ignore temporary files
+*.tmp
+*.bak
+
+Ignore IDE-specific files
+.vscode/
+.sublime-
+*.swp
+
+
+
+Ignore sensitive information
+secret.yaml
+
+Ignore backup files
+*.backup
+
+
+Ignore virtual environment files
+pip-log.txt
+pip-delete-this-directory.txt
+
+Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+Ignore testing files
+test_*.py
+tests/
+test/
+testing/
+
+Ignore development-specific files
+.dev/
+
+Ignore profiling files
+profile_results/
+
+Ignore system-specific files
+.DS_Store
+Thumbs.db
