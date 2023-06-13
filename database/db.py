@@ -45,9 +45,7 @@ Publishers = Base.classes.publishers
 #Создания модели status
 Status = Base.classes.status
 
-session = Session(engine)
-
-
+db_session: Session = Session(engine)
 
 
 print(engine.connect())

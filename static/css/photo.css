@@ -1,0 +1,33 @@
+/* Стили для заголовка */
+h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Стили для формы */
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  display: inline-block;
+  width: 80px;
+}
+
+input[type="file"] {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+button[type="submit"] {
+  margin-left: 80px;
+}
+
+/* Стили для изображений */
+img {
+  display: block;
+  margin-top: 10px;
+  max-width: 400px;
+  height: auto;
+}

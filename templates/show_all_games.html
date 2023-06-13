@@ -3,49 +3,58 @@
 {% block title %}All games{% endblock %}
 
 {% block content %}
-    <section class="page-banner" style="background-image:url(images/background/title-bg.jpg);">
-        <div class="auto-container">
-            <div class="inner-container clearfix">
-                <ul class="bread-crumb clearfix">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html">Pages</a></li>
-                    <li>About Me</li>
-                </ul>
-                <h1>About Me</h1>
-            </div>
+<section class="page-banner" style="background-image:url(images/background/title-bg.jpg);">
+    <div class="auto-container">
+        <div class="inner-container clearfix">
+            <ul class="bread-crumb clearfix">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Pages</a></li>
+                <li>About Me</li>
+            </ul>
+            <h1>About Me</h1>
         </div>
-    </section>
-    <!--End Page Title-->
+    </div>
+</section>
+<!--End Page Title-->
 
+
+{% for image in images %}
+<img src="data:image/jpeg;base64, {{ image }}" alt="">
+{% endfor %}
 {%for game in games%}
 
-	<section class="player-info-section">
-		<div class="auto-container">
-			<div class="row clearfix">
-            	<!--Text Column-->
-                <div class="text-column col-lg-6 col-md-4 col-sm-12">
-                	<div class="inner wow fadeInRight">
-                    	<div class="title-box">
-                        	<div class="Games">{{ game.name }}</div>
-                            <div class="Price">Price :: {{ game.price }}</div>
-                        </div>
-                        <div class="Description">{{game.game_description}}</div>
+<section class="player-info-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Text Column-->
+            <div class="text-column col-lg-6 col-md-4 col-sm-12">
+                <div class="inner wow fadeInRight">
+                    <div class="title-box">
+                        <div class="Games">{{ game.name }}</div>
+                        <div class="Price">Price :: {{ game.price }}</div>
                     </div>
-
-                    <div class="content-box">
-                        <div class="btn-box"><a href="#" class="theme-btn btn-style-one1"><span class="btn-title">Add to cart</span></a></div>
-                    </div>
-
+                    <div class="Description">{{game.game_description}}</div>
                 </div>
-                <!--Image Column-->
-                <div class="image-column col-lg-4 col-md-4 col-sm-6">
-                	<div class="inner wow fadeInLeft">
-                    	<figure class="image"><img src="{{ url_for('static',filename='images/resource/Games.jpeg')}}" alt=""></figure>
+
+                <div class="content-box">
+                    <div class="btn-box"><a href="#" class="theme-btn btn-style-one1"><span class="btn-title">Add to cart</span></a>
                     </div>
+                </div>
+
+            </div>
+            <!--Image Column-->
+            <div class="image-column col-lg-4 col-md-4 col-sm-6">
+                <div class="inner wow fadeInLeft">
+                    {% if game.photo %}
+                        <img src="data:image/jpeg;base64, {{ game.photo | b64encode }}" alt="">
+                    {% else %}
+                        <img src="{{ url_for('static',filename='images/resource/Games.jpeg')}}" alt="">
+                    {% endif %}
                 </div>
             </div>
-		</div>
-	</section>
+        </div>
+    </div>
+</section>
 {%endfor%}
 {%endblock %}
 
