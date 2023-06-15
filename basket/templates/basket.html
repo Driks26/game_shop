@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Registration{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('.static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="header_nav">
+
+    <div class="nav_links">
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('all_game') }}">Shop-Games</a>
+        <a href="#">About me</a>
+    </div>
+    <div class="nav_links">
+        <a href="#">Help & Support</a>
+        <a href="#">Photos Gallery</a>
+
+    </div>
+</div>
+<div class="container">
+
+
+    <div class="card">
+        <h2>Card</h2>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        {% for game in games %}
+
+        <tr>
+            <td><img src="data:image/jpeg;base64, {{ game.photo | b64encode }}" alt=""></td>
+            <td>{{ game.name}}</td>
+            <td>{{game.price}}₴</td>
+            <td>
+                <button class="delete-button">Delete</button>
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+        <!-- Добавьте другие товары здесь -->
+        </tbody>
+    </table>
+    <div class="total-section">
+        <h3>Total Price: <span class="total-price">29.98₴</span></h3>
+        <button class="payment-button">Оплатить</button>
+    </div>
+</div>
+
+</body>
+
+</html>

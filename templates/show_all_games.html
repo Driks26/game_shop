@@ -6,12 +6,13 @@
 <section class="page-banner" style="background-image:url(images/background/title-bg.jpg);">
     <div class="auto-container">
         <div class="inner-container clearfix">
+            <h1>selection by genre</h1>
             <ul class="bread-crumb clearfix">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html">Pages</a></li>
-                <li>About Me</li>
+                {%for genre in genres%}
+                    <li><a href="/genre/{{ genre.gerne_name }}"> {{ genre.gerne_name }} </a></li>
+                {%endfor%}
             </ul>
-            <h1>About Me</h1>
+
         </div>
     </div>
 </section>
@@ -27,11 +28,11 @@
     <div class="auto-container">
         <div class="row clearfix">
             <!--Text Column-->
-            <div class="text-column col-lg-6 col-md-4 col-sm-12">
+            <div class="text-column col-lg-6 col-md-6 col-sm-12">
                 <div class="inner wow fadeInRight">
                     <div class="title-box">
                         <div class="Games">{{ game.name }}</div>
-                        <div class="Price">Price :: {{ game.price }}</div>
+                        <div class="Price">Price :: {{ game.price }} ₴</div>
                     </div>
                     <div class="Description">{{game.game_description}}</div>
                 </div>
@@ -43,12 +44,12 @@
 
             </div>
             <!--Image Column-->
-            <div class="image-column col-lg-4 col-md-4 col-sm-6">
+            <div class="image-column col-lg-5 col-md-5 col-sm-5">
                 <div class="inner wow fadeInLeft">
                     {% if game.photo %}
-                        <img src="data:image/jpeg;base64, {{ game.photo | b64encode }}" alt="">
+                    <img src="data:image/jpeg;base64, {{ game.photo | b64encode }}" alt="">
                     {% else %}
-                        <img src="{{ url_for('static',filename='images/resource/Games.jpeg')}}" alt="">
+                    <img src="{{ url_for('static',filename='images/resource/Games.jpeg')}}" alt="">
                     {% endif %}
                 </div>
             </div>

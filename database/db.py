@@ -5,8 +5,8 @@ from sqlalchemy.orm import Session
 import logging
 
 
-#logging.basicConfig()
-#logging.getLogger('sqlalchemy.engine').setLevel(logging.DEBUG)
+logging.basicConfig()
+logging.getLogger('sqlalchemy.engine').setLevel(logging.DEBUG)
 
 data_uri = "mysql://root:26021712@localhost/Games1"
 engine = create_engine(data_uri)
@@ -34,7 +34,7 @@ Games = Base.classes.games
 Games_Genres = Base.classes.games_gernes
 
 #Создания модели genres
-Genres= Base.classes.gernes
+Genres = Base.classes.gernes
 
 #Создания модели orders
 Orders = Base.classes.orders

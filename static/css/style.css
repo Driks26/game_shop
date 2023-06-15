@@ -4272,7 +4272,7 @@ img{
 	line-height: 30px;
 	color: #ffffff;
 	font-weight: 400;
-    content: ".";
+    content: "|";
 }
 
 .page-banner .bread-crumb li:last-child{

@@ -5,6 +5,23 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/photo.css') }}">
 </head>
 <body>
+
+{% block nav %}
+    <div class="header_nav">
+
+        <div class="nav_links">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="#">Games</a>
+            <a href="#">About me</a>
+        </div>
+        <div class="nav_links">
+            <a href="#">Help & Support</a>
+            <a href="#">Photos Gallery</a>
+            <a href="{{ url_for('login_page') }}">login</a>
+        </div>
+    </div>
+{% endblock %}
+
     <h2>Upload Photo</h2>
     <form action="" method="POST" enctype="multipart/form-data">
         <div class="form-group">
