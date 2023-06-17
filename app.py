@@ -1,6 +1,6 @@
 import base64
 import hashlib
-from flask import Flask, render_template, request, url_for, flash, redirect
+from flask import Flask, render_template, request, url_for, flash, redirect, session
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
 from Userlogin import UserLogin
@@ -92,14 +92,16 @@ def login_page():
                 global password_hash
                 if password is not None:
                     hash_object = hashlib.sha256()
-                    # Преобразуем пароль в байтовую строку и вычисляем хэш
                     hash_object.update(password.encode('utf-8'))
                     password_hash = hash_object.hexdigest()
 
                 if user and password_hash == user.password:
                     user_login = UserLogin(user.idclients, user.nickname)
                     login_user(user_login)
-                    # print(password_hash, user.password)
+
+                    # Сохраняем idclients в сессии
+                    session['idclients'] = user.idclients
+
                     return redirect(url_for('index'))
                 else:
                     flash('Login or password are incorrect')
@@ -107,6 +109,8 @@ def login_page():
                 flash('Please fill in login and password')
 
     return render_template('login.html')
+
+
 
 @app.route('/logout')
 @login_required

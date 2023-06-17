@@ -2,7 +2,11 @@
 
 {% block title %}All games{% endblock %}
 
+
+
 {% block content %}
+
+
 <section class="page-banner" style="background-image:url(images/background/title-bg.jpg);">
     <div class="auto-container">
         <div class="inner-container clearfix">
@@ -38,8 +42,17 @@
                 </div>
 
                 <div class="content-box">
-                    <div class="btn-box"><a href="#" class="theme-btn btn-style-one1"><span class="btn-title">Add to cart</span></a>
-                    </div>
+                    <form action="{{ url_for('basket.add_basket', game_id=game.idgames) }}" method="post">
+
+                        <div class="btn-box">
+                            <form id="add-to-basket-form" action="{{ url_for('basket.add_basket', game_id=game.idgames) }}"
+                                  method="post">
+                                <button type="submit" class="add-to-basket-btn">Add to Basket</button>
+
+                            </form>
+                        </div>
+                        <div id="message-section"></div>
+                    </form>
                 </div>
 
             </div>
@@ -57,5 +70,39 @@
     </div>
 </section>
 {%endfor%}
+
+<script>
+    // Обработчик события отправки формы
+    document.addEventListener('submit', function(event) {
+        if (event.target.matches('#add-to-basket-form')) {
+            event.preventDefault(); // Предотвращаем отправку формы
+
+            // Отправляем AJAX-запрос на сервер
+            fetch(event.target.action, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.status === 200) {
+                    // Если статус успешный (200), получаем JSON-ответ
+                    return response.json();
+                } else {
+                    // Если статус ошибочный, генерируем ошибку
+                    throw new Error('Request failed');
+                }
+            })
+            .then(data => {
+                var messageSection = document.getElementById('message-section');
+                messageSection.innerText = data.message;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    });
+</script>
+
 {%endblock %}
 

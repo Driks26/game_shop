@@ -5,62 +5,112 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('.static', filename='css/style.css') }}">
 </head>
 <body>
+    <div class="container">
+        <div class="header_nav">
+            <div class="nav_links">
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('all_game') }}">Shop-Games</a>
+                <a href="#">About me</a>
+            </div>
+            <div class="nav_links">
+                <a href="#">Help & Support</a>
+                <a href="#">Photos Gallery</a>
 
-<div class="header_nav">
+            </div>
+        </div>
 
-    <div class="nav_links">
-        <a href="{{ url_for('index') }}">Home</a>
-        <a href="{{ url_for('all_game') }}">Shop-Games</a>
-        <a href="#">About me</a>
+        <div class="card">
+            <h2>Card</h2>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for cart_item, game in cart_items %}
+            <tr>
+                {% if game.photo %}
+                <td><img src="{{ game.photo | b64encode }}" alt=""></td>
+                {% else %}
+                <td><img src="{{ url_for('static', filename='images/resource/Games.jpeg') }}" alt=""></td>
+                {% endif %}
+                <td>{{ game.name }}</td>
+                <td>{{ game.price }}₴</td>
+                <td>{{ game.id }}</td>
+                <td>
+                    <button class="delete-button" data-game-id="{{ game.id }}">Delete</button>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+
+        <div class="total-section">
+            <h3>Total Price: <span class="total-price">{{ total_price }}</span></h3>
+            <button id="payment-button" class="payment-button">Оплатить</button>
+            <div id="message-section" style="color: red"></div>
+        </div>
     </div>
-    <div class="nav_links">
-        <a href="#">Help & Support</a>
-        <a href="#">Photos Gallery</a>
 
-    </div>
-</div>
-<div class="container">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<script>
+    $(document).ready(function () {
+        $('#payment-button').click(function () {
+            console.log('asdasdasdasdasd')
+            $.ajax({
+                url: '/basket/pay_basket',
+                type: 'POST',
+                dataType: 'json',
+                success: function (response) {
+                    showMessage(response.message);
+                },
+                error: function () {
+                    showMessage('Payment failed');
+                }
+            });
+        });
 
-    <div class="card">
-        <h2>Card</h2>
-    </div>
+        function showMessage(message) {
+            $('#message-section').text(message);
+        }
+    });
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Photo</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
+</script>
+<script>
+    $(document).ready(function () {
+        $('.delete-button').click(function () {
+            var gameId = $(this).data('game-id');
 
+            $.ajax({
+                url: '/basket/delete_game',
+                type: 'POST',
+                data: { 'game-id': gameId },
+                dataType: 'json',
+                success: function (response) {
+                    showMessage(response.message);
+                    // Optionally, you can remove the deleted game row from the table
+                    $(this).closest('tr').remove();
+                     location.reload(); // Обновить страницу
+                },
+                error: function () {
+                    showMessage('Failed to delete the game from the cart');
+                    location.reload(); // Обновить страницу
 
-        {% for game in games %}
+                }
+            });
+        });
 
-        <tr>
-            <td><img src="data:image/jpeg;base64, {{ game.photo | b64encode }}" alt=""></td>
-            <td>{{ game.name}}</td>
-            <td>{{game.price}}₴</td>
-            <td>
-                <button class="delete-button">Delete</button>
-            </td>
-
-        </tr>
-
-        {% endfor %}
-
-        <!-- Добавьте другие товары здесь -->
-        </tbody>
-    </table>
-    <div class="total-section">
-        <h3>Total Price: <span class="total-price">29.98₴</span></h3>
-        <button class="payment-button">Оплатить</button>
-    </div>
-</div>
-
+        function showMessage(message) {
+            $('#message-section').text(message);
+        }
+    });
+</script>
 </body>
-
 </html>

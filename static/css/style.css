@@ -184,150 +184,120 @@ figure{
 .centered{
 	text-align:center !important;
 }
-
-/*Btn Style One*/
-
-.btn-style-one1{
-	position: relative;
-	display: inline-block;
-	font-size: 13px;
-	line-height: 20px;
-	color: #ffffff;
-	font-weight: 700;
-	letter-spacing:1px;
-	text-transform:uppercase;
+.btn-style-one1 {
+    position: relative;
+    display: inline-block;
+    font-size: 13px;
+    line-height: 20px;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-.btn-style-one1:hover{
-	color: #3786ff;
+.btn-style-one1:hover {
+    color: #3786ff;
 }
 
-.btn-style-one1 .btn-title{
-	position: relative;
-	display:block;
-	z-index:1;
-	padding: 18px 56px;
-	background-color: #3786ff;
-	transition:all 0.3s ease;
-	-moz-transition:all 0.3s ease;
-	-webkit-transition:all 0.3s ease;
-	-ms-transition:all 0.3s ease;
-	-o-transition:all 0.3s ease;
+.btn-style-one1 .btn-title {
+    position: relative;
+    display: block;
+    z-index: 1;
+    padding: 18px 56px;
+    background-color: #3786ff;
+    transition: all 0.3s ease;
 }
 
-.btn-style-one1:hover .btn-title{
-	color:#3786ff;
-	-webkit-box-shadow: 0 10px 30px rgba(0,0,0,0.10);
-	-moz-box-shadow: 0 10px 30px rgba(0,0,0,0.10);
-	-ms-box-shadow: 0 10px 30px rgba(0,0,0,0.10);
-	-o-box-shadow: 0 10px 30px rgba(0,0,0,0.10);
-	box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+.btn-style-one1:hover .btn-title {
+    color: #3786ff;
+    -webkit-box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+    -moz-box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+    -ms-box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+    -o-box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.10);
 }
 
-.btn-style-one1 .btn-title:before{
-	position: absolute;
-	left: 0;
-	top: 0;
-	z-index:-1;
-	height: 100%;
-	width: 100%;
-	content: "";
-	background-color: #ffffff;
-	-webkit-transform: scale(0, 1);
-	-ms-transform: scale(0, 1);
-	transform: scale(0, 1);
-	-webkit-transform-origin: top right;
-	-ms-transform-origin: top right;
-	transform-origin: top right;
-    -webkit-transition: transform 500ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
-    -moz-transition: transform 500ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
-    -o-transition: transform 500ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
+.btn-style-one1 .btn-title:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    content: "";
+    background-color: #ffffff;
+    -webkit-transform: scale(0, 1);
+    -ms-transform: scale(0, 1);
+    transform: scale(0, 1);
+    -webkit-transform-origin: top right;
+    -ms-transform-origin: top right;
+    transform-origin: top right;
     transition: transform 500ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
-    -webkit-transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.000);
-    -moz-transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.000);
-    -o-transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.000);
-    transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.000);
 }
 
-.btn-style-one1:hover  .btn-title:before{
-	-webkit-transform: scale(1, 1);
-	-ms-transform: scale(1, 1);
-	transform: scale(1, 1);
-	-webkit-transform-origin: bottom left;
-	-ms-transform-origin: bottom left;
-	transform-origin: bottom left;
+.btn-style-one1:hover .btn-title:before {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+    -webkit-transform-origin: bottom left;
+    -ms-transform-origin: bottom left;
+    transform-origin: bottom left;
 }
 
-.btn-style-one1{
-	position: relative;
-	display: inline-block;
-	font-size: 18px;
-	line-height: 30px;
-	color: #ffffff;
-	font-weight: 700;
-	letter-spacing:1px;
-	text-transform:uppercase;
+.add-to-basket-btn {
+  /* Стили для кнопки */
+  position: relative;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 20px;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 18px 56px;
+  background-color: #3786ff;
+  transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
 }
 
-.btn-style-one1:hover{
-	color: #3786ff;
+.add-to-basket-btn:hover {
+  /* Стили для кнопки при наведении */
+  color: #3786ff;
 }
 
-.btn-style-one1 .btn-title{
-	position: relative;
-	display:block;
-	z-index:1;
-	padding: 18px 56px;
-	background-color: #3786ff;
-	transition:all 0.3s ease;
-	-moz-transition:all 0.3s ease;
-	-webkit-transition:all 0.3s ease;
-	-ms-transition:all 0.3s ease;
-	-o-transition:all 0.3s ease;
+.add-to-basket-btn .btn-title {
+  /* Стили для текста кнопки */
+  position: relative;
+  display: block;
+  z-index: 1;
 }
 
-.btn-style-one1:hover .btn-title{
-	color:#3786ff;
-	-webkit-box-shadow: 0 10px 30px rgba(0,0,0,0.10);
-	-moz-box-shadow: 0 10px 30px rgba(0,0,0,0.10);
-	-ms-box-shadow: 0 10px 30px rgba(0,0,0,0.10);
-	-o-box-shadow: 0 10px 30px rgba(0,0,0,0.10);
-	box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+.add-to-basket-btn:before {
+  /* Стили для псевдоэлемента */
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  content: "";
+  background-color: #ffffff;
+  transform: scale(0, 1);
+  transform-origin: top right;
+  transition: transform 500ms cubic-bezier(0.86, 0, 0.07, 1);
+  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
 }
 
-.btn-style-one1 .btn-title:before{
-	position: absolute;
-	left: 0;
-	top: 0;
-	z-index:-1;
-	height: 100%;
-	width: 100%;
-	content: "";
-	background-color: #ffffff;
-	-webkit-transform: scale(0, 1);
-	-ms-transform: scale(0, 1);
-	transform: scale(0, 1);
-	-webkit-transform-origin: top right;
-	-ms-transform-origin: top right;
-	transform-origin: top right;
-    -webkit-transition: transform 500ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
-    -moz-transition: transform 500ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
-    -o-transition: transform 500ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
-    transition: transform 500ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
-    -webkit-transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.000);
-    -moz-transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.000);
-    -o-transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.000);
-    transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.000);
+.add-to-basket-btn:hover:before {
+  /* Стили для псевдоэлемента при наведении */
+  transform: scale(1, 1);
+  transform-origin: bottom left;
 }
 
-.btn-style-one1:hover  .btn-title:before{
-	-webkit-transform: scale(1, 1);
-	-ms-transform: scale(1, 1);
-	transform: scale(1, 1);
-	-webkit-transform-origin: bottom left;
-	-ms-transform-origin: bottom left;
-	transform-origin: bottom left;
-}
+
 
 /* Btn Style Two */
 

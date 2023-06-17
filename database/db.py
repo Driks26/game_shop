@@ -1,12 +1,12 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, relationship, foreign
 
 import logging
 
 
-logging.basicConfig()
-logging.getLogger('sqlalchemy.engine').setLevel(logging.DEBUG)
+#logging.basicConfig()
+#logging.getLogger('sqlalchemy.engine').setLevel(logging.DEBUG)
 
 data_uri = "mysql://root:26021712@localhost/Games1"
 engine = create_engine(data_uri)
@@ -18,6 +18,9 @@ Base = automap_base()
 # Отрази существующую структуру базы данных и свяжи ее с движком
 Base.prepare(engine)
 
+#Создания модели games
+Games = Base.classes.games
+
 #Создания модели clients
 Clients = Base.classes.clients
 
@@ -27,8 +30,7 @@ Cart = Base.classes.cart
 #Создания модели developers
 Developers = Base.classes.developers
 
-#Создания модели games
-Games = Base.classes.games
+
 
 #Создания модели games_genres
 Games_Genres = Base.classes.games_gernes
@@ -47,5 +49,5 @@ Status = Base.classes.status
 
 db_session: Session = Session(engine)
 
-
+game = relationship(Games, primaryjoin=Cart.games_idgames == foreign(Games.idgames))
 print(engine.connect())
